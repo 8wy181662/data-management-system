@@ -8,9 +8,9 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-<title>数据 - AdminLTE2定制版</title>
-<meta name="description" content="AdminLTE2定制版">
-<meta name="keywords" content="AdminLTE2定制版">
+<title>数据 - AdminLTE2</title>
+<meta name="description" content="AdminLTE2">
+<meta name="keywords" content="AdminLTE2">
 
 <!-- Tell the browser to be responsive to screen width -->
 <meta
@@ -143,7 +143,7 @@
 								</tr>
 							</thead>
 							<tbody>
-								<c:forEach items="${sysLogs}" var="syslog">
+								<c:forEach items="${pageInfo.list}" var="syslog">
 									<tr>
 										<td><input name="ids" type="checkbox"></td>
 										<td>${syslog.id}</td>
@@ -191,27 +191,31 @@
 				<div class="box-footer">
 					<div class="pull-left">
 						<div class="form-group form-inline">
-							总共2 页，共14 条数据。 每页 <select class="form-control">
+							总共${pageInfo.pages}页，共${pageInfo.total} 条数据。 每页
+							<select class="form-control" id="changePageSize" onchange="changePageSize()">
 								<option>10</option>
 								<option>15</option>
 								<option>20</option>
-								<option>50</option>
-								<option>80</option>
+								<option>30</option>
+								<option>40</option>
 							</select> 条
 						</div>
 					</div>
 
 					<div class="box-tools pull-right">
 						<ul class="pagination">
-							<li><a href="#" aria-label="Previous">首页</a></li>
-							<li><a href="#">上一页</a></li>
-							<li><a href="#">1</a></li>
-							<li><a href="#">2</a></li>
-							<li><a href="#">3</a></li>
-							<li><a href="#">4</a></li>
-							<li><a href="#">5</a></li>
-							<li><a href="#">下一页</a></li>
-							<li><a href="#" aria-label="Next">尾页</a></li>
+							<li>
+								<a href="${pageContext.request.contextPath}/sysLog/findAll.do?page=1&pageSize=${pageInfo.pageSize}" aria-label="Previous">首页</a>
+							</li>
+							<li><a href="${pageContext.request.contextPath}/sysLog/findAll.do?page=${pageInfo.pageNum-1}&pageSize=${pageInfo.pageSize}">上一页</a></li>
+							<c:forEach begin="1" end="${pageInfo.pages}" var="page">
+								<li><a href="${pageContext.request.contextPath}/sysLog/findAll.do?page=${page}&pageSize=${pageInfo.pageSize}">${page}</a></li>
+							</c:forEach>
+
+							<li><a href="${pageContext.request.contextPath}/sysLog/findAll.do?page=${pageInfo.pageNum+1}&pageSize=${pageInfo.pageSize}">下一页</a></li>
+							<li>
+								<a href="${pageContext.request.contextPath}/sysLog/findAll.do?page=${pageInfo.pages}&pageSize=${pageInfo.pageSize}" aria-label="Next">尾页</a>
+							</li>
 						</ul>
 					</div>
 
@@ -225,16 +229,6 @@
 
 		</div>
 		<!-- 内容区域 /-->
-
-		<!-- 底部导航 -->
-		<footer class="main-footer">
-		<div class="pull-right hidden-xs">
-			<b>Version</b> 1.0.8
-		</div>
-		<strong>Copyright &copy; 2014-2017 <a
-			href="http://www.itcast.cn">研究院研发部</a>.
-		</strong> All rights reserved. </footer>
-		<!-- 底部导航 /-->
 
 	</div>
 
@@ -325,6 +319,16 @@
 		src="${pageContext.request.contextPath}/plugins/bootstrap-datetimepicker/bootstrap-datetimepicker.min.js"></script>
 
 	<script>
+        function changePageSize() {
+            //获取下拉框的值
+            var pageSize = $("#changePageSize").val();
+
+
+            //向服务器发送请求，改变没页显示条数
+            location.href = "${pageContext.request.contextPath}/sysLog/findAll.do?page=1&pageSize="
+                + pageSize;
+
+        }
 		$(document).ready(function() {
 			// 选择框
 			$(".select2").select2();

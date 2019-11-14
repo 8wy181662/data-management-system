@@ -12,9 +12,9 @@
 
 
 
-<title>数据 - AdminLTE2定制版</title>
-<meta name="description" content="AdminLTE2定制版">
-<meta name="keywords" content="AdminLTE2定制版">
+<title>数据 - AdminLTE2</title>
+<meta name="description" content="AdminLTE2">
+<meta name="keywords" content="AdminLTE2">
 
 
 
@@ -166,12 +166,12 @@
 			<!-- 内容头部 -->
 			<section class="content-header">
 				<h1>
-					数据管理 <small>数据列表</small>
+					订单管理 <small>订单列表</small>
 				</h1>
 				<ol class="breadcrumb">
 					<li><a href="#"><i class="fa fa-dashboard"></i> 首页</a></li>
-					<li><a href="#">数据管理</a></li>
-					<li class="active">数据列表</li>
+					<li><a href="#">订单管理</a></li>
+					<li class="active">订单列表</li>
 				</ol>
 			</section>
 			<!-- 内容头部 /-->
@@ -201,15 +201,7 @@
 										<button type="button" class="btn btn-default" title="删除">
 											<i class="fa fa-trash-o"></i> 删除
 										</button>
-										<button type="button" class="btn btn-default" title="开启">
-											<i class="fa fa-check"></i> 开启
-										</button>
-										<button type="button" class="btn btn-default" title="屏蔽">
-											<i class="fa fa-ban"></i> 屏蔽
-										</button>
-										<button type="button" class="btn btn-default" title="刷新">
-											<i class="fa fa-refresh"></i> 刷新
-										</button>
+
 									</div>
 								</div>
 							</div>
@@ -283,15 +275,7 @@
 										<button type="button" class="btn btn-default" title="删除">
 											<i class="fa fa-trash-o"></i> 删除
 										</button>
-										<button type="button" class="btn btn-default" title="开启">
-											<i class="fa fa-check"></i> 开启
-										</button>
-										<button type="button" class="btn btn-default" title="屏蔽">
-											<i class="fa fa-ban"></i> 屏蔽
-										</button>
-										<button type="button" class="btn btn-default" title="刷新">
-											<i class="fa fa-refresh"></i> 刷新
-										</button>
+
 									</div>
 								</div>
 							</div>
@@ -356,17 +340,7 @@
 		</div>
 		<!-- @@close -->
 		<!-- 内容区域 /-->
-
-		<!-- 底部导航 -->
-		<footer class="main-footer">
-			<div class="pull-right hidden-xs">
-				<b>Version</b> 1.0.8
-			</div>
-			<strong>Copyright &copy; 2014-2017 <a
-				href="http://www.itcast.cn">研究院研发部</a>.
-			</strong> All rights reserved.
-		</footer>
-		<!-- 底部导航 /-->
+		
 
 	</div>
 
